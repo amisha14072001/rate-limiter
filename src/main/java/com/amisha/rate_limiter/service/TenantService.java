@@ -18,7 +18,7 @@ public class TenantService {
     }
 
     public Tenant createTenant(Tenant tenant) {
-        Optional<Tenant> existingTenant = repository.findByTenantkey(tenant.getTenantKey());
+        Optional<Tenant> existingTenant = repository.findByTenantKey(tenant.getTenantKey());
         if (existingTenant.isPresent()) {
             throw new RuntimeException("Tenant with this key already exists");
         }
