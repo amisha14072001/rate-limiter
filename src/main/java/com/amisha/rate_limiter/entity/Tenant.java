@@ -1,13 +1,16 @@
-package com.amisha.ratelimiter.entity;
+package com.amisha.rate_limiter.entity;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "tenants")
-@Data                   // lombok: generates getters, setters, toString
-@NoArgsConstructor      // lombok: generates empty constructor
-@AllArgsConstructor     // lombok: generates full constructor
+@Data // lombok: generates getters, setters, toString
+@NoArgsConstructor // lombok: generates empty constructor
+@AllArgsConstructor // lombok: generates full constructor
 public class Tenant {
 
     @Id
@@ -15,10 +18,10 @@ public class Tenant {
     private Long id;
     // ↑ auto-increment: 1, 2, 3... Hibernate handles this
 
-    @Column(unique= true ,nullable=false)
+    @Column(unique = true, nullable = false)
     private String tenantKey;
 
-       // ↑ this is what goes inside the JWT token
+    // ↑ this is what goes inside the JWT token
     // e.g. "walmart-001", "openai-free-tier"
     // unique = no two tenants can have same key
     // nullable = false means this field is required

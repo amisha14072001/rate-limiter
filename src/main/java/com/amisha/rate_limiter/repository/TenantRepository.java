@@ -1,6 +1,6 @@
-package com.amisha.ratelimiter.repository;
+package com.amisha.rate_limiter.repository;
 
-import com.amisha.ratelimiter.entity.Tenant;
+import com.amisha.rate_limiter.entity.Tenant;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -9,8 +9,5 @@ import java.util.Optional;
 
 public interface TenantRepository extends JpaRepository<Tenant, Long> {
     Optional<Tenant> findByTenantKey(String tenantKey);
+
 }
-
-
-
-
